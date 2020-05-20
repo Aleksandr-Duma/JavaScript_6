@@ -15,7 +15,6 @@
 // }
 
 ////////////////// Решение //////////////////
-var message;
-    (login == 'Pitter')? message = 'Hi':
-    (login == 'Owner')? message = 'Hello':
-    (login == '')? message = 'unknown': message = '';
+const message = (login == 'Pitter')? 'Hi':
+                (login == 'Owner')? 'Hello':
+                (login == '')? 'unknown': '';
