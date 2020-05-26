@@ -11,9 +11,18 @@
  * - Если в качестве первого параметра передана не строка — нужно вернуть null.
  */
 
-const PRICE = '$120';
+// const PRICE = '$120';
 
 // Решение
+const PRICE = '$120';
+
+function extractCurrencyValue(source){
+    if(typeof source !== 'string'){
+        console.log(null);
+    }
+    let cost = Number(source.substring(1));
+    console.log(cost);
+}
 
 extractCurrencyValue(PRICE); // 120
 
