@@ -13,7 +13,7 @@
 
 function upperCaseFirst(param){
     if(typeof param !== 'string'){
-        console.log('Error!!!');
+        throw new Error('Не правильные входные данные!');
     }
     let firstLetter = param.charAt(0).toUpperCase();
     let string = param.substr(1).toLowerCase();

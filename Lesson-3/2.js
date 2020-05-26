@@ -14,7 +14,7 @@
 
 function checkSpam(param1, param2){
     if(typeof param1 !== 'string' || typeof param2 !== 'string'){
-        console.log('Error!!!');
+        throw new Error('Не правильные входные данные!');
     }
     let argument1 = param1.toLowerCase();
     let argument2 = param2.toLowerCase();
