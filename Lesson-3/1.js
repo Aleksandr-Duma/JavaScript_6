@@ -22,7 +22,7 @@ function upperCaseFirst(param){
         console.log(result);
 }
 
-// upperCaseFirst('pitter'); // Pitter
+upperCaseFirst('pitter'); // Pitter
 upperCaseFirst(' '); // ''
 
 // exports.upperCaseFirst = upperCaseFirst;
