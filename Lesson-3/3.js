@@ -15,6 +15,21 @@
 
 // Решение
 
+function truncate(param1, param2){
+    if(typeof param1 !== 'string' || typeof param2 !== 'number'){
+        throw new Error('Не правильные входные данные!');
+    }
+    let stringLength = param1.length;
+    let maxLength = param2;
+   
+    if(stringLength >= maxLength){
+        let res = param1.substring(0, maxLength - 3) + '...';
+        console.log(res);  
+    }else{
+        console.log(param1);
+    }
+}
+
 truncate('Вот, что мне хотелось бы сказать на эту тему:', 21); // 'Вот, что мне хотел...'
 
 exports.truncate = truncate;
