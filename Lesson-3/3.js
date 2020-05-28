@@ -16,9 +16,16 @@
 // Решение
 
 function truncate(param1, param2){
-    if(typeof param1 !== 'string' || typeof param2 !== 'number'){
-        throw new Error('Не правильные входные данные!');
+    if(arguments.length !== truncate.length){
+        throw new Error('Не верное количество входных данных!');
     }
+    if(typeof param1 !== 'string'){
+        throw new Error('Не правильный первый параметр!'); 
+    }
+    if(typeof param2 !== 'number'){
+        throw new Error('Не правильный второй параметр!'); 
+    }
+
     let stringLength = param1.length;
     let maxLength = param2;
    

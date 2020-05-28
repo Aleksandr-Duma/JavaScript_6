@@ -12,9 +12,13 @@
 // Решение
 
 function upperCaseFirst(param){
+    if(arguments.length !== upperCaseFirst.length){
+        throw new Error('Не верное количество входных данных!');
+    }
     if(typeof param !== 'string'){
         throw new Error('Не правильные входные данные!');
     }
+    
     let firstLetter = param.charAt(0).toUpperCase();
     let string = param.substr(1).toLowerCase();
     let result = firstLetter + string;

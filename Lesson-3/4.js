@@ -17,9 +17,13 @@
 const PRICE = '$120';
 
 function extractCurrencyValue(source){
-    if(typeof source !== 'string'){
-        console.log(null);
+    if(arguments.length !== extractCurrencyValue.length){
+        throw new Error('Не верное количество входных данных!');
     }
+    if(typeof source !== 'string'){
+        return null;
+    }
+    
     let cost = Number(source.substring(1));
     console.log(cost);
 }

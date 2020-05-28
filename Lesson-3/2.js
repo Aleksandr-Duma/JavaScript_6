@@ -13,13 +13,20 @@
 // Решение
 
 function checkSpam(param1, param2){
-    if(typeof param1 !== 'string' || typeof param2 !== 'string'){
-        throw new Error('Не правильные входные данные!');
+    if(arguments.length !== checkSpam.length){
+        throw new Error('Не верное количество входных данных!');
     }
+    if(typeof param1 !== 'string'){
+        throw new Error('Не правильный первый параметр!');
+    }
+    if(typeof param1 !== 'string'){
+        throw new Error('Не правильный второй параметр!');
+    }
+    
     let argument1 = param1.toLowerCase();
     let argument2 = param2.toLowerCase();
-    let result = argument1.includes(argument2);
-    if(result){
+
+    if(argument1.includes(argument2)){
         console.log(true);
     }else{
         console.log(false);
