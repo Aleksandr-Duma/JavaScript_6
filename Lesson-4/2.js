@@ -22,12 +22,14 @@ const person = {};
 
 Object.defineProperties(person, {
     rate: {
-        value: true,
-        writable: true
+        value: 0,
+        writable: true,
+        enumerable: false,
+        configurable: false
     },
     salary: {
         get(){
-            if(this.rate === undefined){
+            if(!this.rate){
                 return 0;
             }
             let ourDate = new Date().getDate();

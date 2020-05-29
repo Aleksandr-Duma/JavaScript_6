@@ -15,19 +15,21 @@ const person = {};
 
 Object.defineProperty(person, 'salary', {
     get: function(){
-        let nowDate = new Date().getDate();
-        let daysInMonth = 30;
-        let deltaDay = daysInMonth - nowDate;
+        let date = new Date();
+        let ourDay = date.getDate();
+        let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        let deltaDay = lastDay - ourDay;
+        
         if(deltaDay > 20){
             return 'Good salary';
         }else{
             return 'Bad salary';
-        }
+        } 
     }
 })
 
 console.log(person.salary);
 
-// person.salary; // good salary
+person.salary; // good salary
 
-// exports.person = person;
+exports.person = person;
