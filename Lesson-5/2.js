@@ -14,16 +14,16 @@ function f(){
     if(!arguments.length){
         throw new Error('Вы не ввели данные!');
     }
-    let res = 0;
+    let result = null;
 
     for(let i = 0; i < arguments.length; i++){
         if(typeof arguments[i] !== 'number'){
             throw new Error('Вы ввели не корректные данные!');
         }
-        res += arguments[i];
+        result += arguments[i];
     }
 
-    return res;
+    return result;
 }
 
 console.log(f(1, 1, 1, 2, 1, 1, 1, 1)); // 9

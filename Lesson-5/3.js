@@ -9,6 +9,20 @@
 
 // Решение
 
+function f(par1, par2, par3){
+    if(!arguments.length){
+        throw new Error('Вы не ввели данные!');
+    }
+    for(let i = 0; i < arguments.length; i++){
+        if(typeof arguments[i] !== 'number'){
+            throw new Error('Вы ввели не корректные данные!');  
+        }
+    }
+    
+    return (par1 - par2) / par3;
+}
+
 console.log(f(9, 3, 2)); // 3
+
 
 exports.f = f;

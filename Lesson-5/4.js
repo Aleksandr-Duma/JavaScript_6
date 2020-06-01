@@ -19,6 +19,55 @@
 
 // Решение
 
+// Функция для выбора дня неделии
+function switchDay(x){
+    let ourDay = null;
+    switch(x){
+        case 1:
+            ourDay = 'Воскресенье';
+            break;
+        case 2: 
+            ourDay = 'Понедельник';
+            break;
+        case 3:
+            ourDay = 'Вторник';
+            break;
+        case 4:
+            ourDay = 'Среда';
+            break;
+        case 5:
+            ourDay = 'Четверг';
+            break;
+        case 6:
+            ourDay = 'Пятница';
+            break;
+        case 7:
+            ourDay = 'Суббота';
+    }
+    return ourDay;
+}
+
+// Функция для валидации входных данных.
+function correctArgument(arg){
+    if(!arg){
+        throw new Error('Вы не ввели данные!');
+    };
+    if(typeof arg !== 'number'){
+        throw new Error('Вы ввели не корректные данные!');
+    };
+    if(arg < 0 || arg > 7){
+        throw new Error('Дней недели только семь !!!');
+    };
+    return arg;
+}
+
+// Наша основная функция
+function f(param){
+    return switchDay(correctArgument(param)); 
+};
+
+console.log(f(4));
+
 f(1); // Воскресенье
 f(4); // Среда
 

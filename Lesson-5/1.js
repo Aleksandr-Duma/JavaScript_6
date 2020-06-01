@@ -16,6 +16,7 @@ function f(param){
     if(typeof param !== 'number'){
         throw new Error('Вы ввели не корректные данные!');
     }
+    
     return param ** 3;
 }
 
