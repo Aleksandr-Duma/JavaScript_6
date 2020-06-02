@@ -12,6 +12,14 @@
 
 // Решение
 
+const isPositive = function(n){
+    if(typeof n !== 'number'){
+        throw new Error('Вы ввели не число!');
+    }
+
+    return n >= 0 ? true: false;
+}
+
 isPositive(-3); // false
 isPositive(3); // true
 

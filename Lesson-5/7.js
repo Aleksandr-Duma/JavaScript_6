@@ -14,6 +14,37 @@
 
 // Решение
 
+// Функция для валидации входных данных.
+const correctArgument = function(x){
+    if(typeof x !== 'number'){
+        throw new Error('Вы ввели не число!');
+    }
+    if(x < 1){
+        throw new Error('Вы ввели число меньше 1 !!!');
+    }
+    return x;
+}
+
+// Наша основная функция
+const getDivisors = function(n){
+    correctArgument(n);
+    let num = n;
+    let arr = new Array(num);
+    let arrResult = [];
+    
+    for(let i = 0; i <= num; i++){
+        arr[i] = i;
+        let res = num / arr[i];
+        if(Number.isInteger(res)){
+            arrResult.unshift(res);
+        }
+    } 
+
+    return arrResult;     
+}
+
+// console.log(getDivisors(12));
+
 getDivisors(12); // [1, 2, 3, 4, 6, 12]
 
 exports.getDivisors = getDivisors;

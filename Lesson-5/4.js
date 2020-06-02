@@ -22,6 +22,7 @@
 // Функция для выбора дня неделии
 function switchDay(x){
     let ourDay = null;
+    
     switch(x){
         case 1:
             ourDay = 'Воскресенье';
@@ -44,6 +45,7 @@ function switchDay(x){
         case 7:
             ourDay = 'Суббота';
     }
+
     return ourDay;
 }
 
@@ -66,7 +68,7 @@ function f(param){
     return switchDay(correctArgument(param)); 
 };
 
-console.log(f(4));
+// console.log(f(1));
 
 f(1); // Воскресенье
 f(4); // Среда

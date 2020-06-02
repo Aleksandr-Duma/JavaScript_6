@@ -12,6 +12,17 @@
 
 // Решение
 
+const isEven = function(n){
+    if(typeof n !== 'number'){
+        throw new Error('Вы ввели не число!');
+    }
+    if(n % 2 === 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 isEven(3); // false
 isEven(4); // true
 

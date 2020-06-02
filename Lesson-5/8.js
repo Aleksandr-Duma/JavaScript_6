@@ -17,6 +17,21 @@
 
 // Решение
 
+function f(param){
+    if(!Array.isArray(param)){
+        throw new Error('Вы передали не массив!')
+    }
+    if(param.length === 0){
+        throw new Error('Вы передали пустой массив!')
+    }
+    let result = param.splice(0, 1).join('');
+        console.log(result); 
+        if(param.length !== 0){
+
+            f(param);
+    }     
+}
+
 f([1, 2, 3]);
 // 1
 // 2
