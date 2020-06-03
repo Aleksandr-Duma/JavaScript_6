@@ -26,9 +26,9 @@ function f(param){
     }
     let result = param.splice(0, 1).join('');
         console.log(result); 
-        if(param.length !== 0){
+    if(param.length !== 0){
 
-            f(param);
+        f(param);
     }     
 }
 

@@ -17,7 +17,7 @@ function f(param){
         throw new Error('Вы ввели не корректные данные!');
     }
     
-    return param ** 3;
+    return Math.pow(param, 3);
 }
 
 console.log(f(2)); // 8

@@ -50,14 +50,14 @@ function switchDay(x){
 }
 
 // Функция для валидации входных данных.
-function correctArgument(arg){
+function isCorrectArgument(arg){
     if(!arg){
         throw new Error('Вы не ввели данные!');
     };
     if(typeof arg !== 'number'){
         throw new Error('Вы ввели не корректные данные!');
     };
-    if(arg < 0 || arg > 7){
+    if(arg <= 0 || arg > 7){
         throw new Error('Дней недели только семь !!!');
     };
     return arg;
@@ -65,10 +65,10 @@ function correctArgument(arg){
 
 // Наша основная функция
 function f(param){
-    return switchDay(correctArgument(param)); 
+    return switchDay(isCorrectArgument(param)); 
 };
 
-// console.log(f(1));
+// console.log(f(5));
 
 f(1); // Воскресенье
 f(4); // Среда

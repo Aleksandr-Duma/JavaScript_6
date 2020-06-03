@@ -13,6 +13,9 @@ function f(par1, par2, par3){
     if(!arguments.length){
         throw new Error('Вы не ввели данные!');
     }
+    if(par3 === 0){
+        throw new Error('На ноль делить нельзя!');
+    }
     for(let i = 0; i < arguments.length; i++){
         if(typeof arguments[i] !== 'number'){
             throw new Error('Вы ввели не корректные данные!');  
