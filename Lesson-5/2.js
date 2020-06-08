@@ -26,6 +26,10 @@ function f(){
     return result;
 }
 
-console.log(f(1, 1, 1, 2, 1, 1, 1, 1)); // 9
+try{
+    console.log(f(1, 1, 1, 2, 1, 1, 1, 1)); // 9
+}catch(err){
+    console.log(err.message);
+}
 
 exports.f = f;

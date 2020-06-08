@@ -43,7 +43,11 @@ const getDivisors = function(n){
     return arrResult;     
 }
 
-console.log(getDivisors(12));
+try{
+    console.log(getDivisors(12));
+}catch(err){
+    console.log(err.message);
+}
 
 // getDivisors(12); // [1, 2, 3, 4, 6, 12]
 

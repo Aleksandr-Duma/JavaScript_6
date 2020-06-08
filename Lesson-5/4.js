@@ -68,9 +68,13 @@ function f(param){
     return switchDay(isCorrectArgument(param)); 
 };
 
-// console.log(f(5));
+try{
+    console.log(f(5));
+}catch(err){
+    console.log(err.message);
+}
 
-f(1); // Воскресенье
-f(4); // Среда
+// f(1); // Воскресенье
+// f(4); // Среда
 
 exports.f = f;

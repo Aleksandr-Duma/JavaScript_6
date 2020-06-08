@@ -20,7 +20,13 @@ const isPositive = function(n){
     return n >= 0 ? true: false;
 }
 
-isPositive(-3); // false
-isPositive(3); // true
+try{
+    console.log(isPositive(-3));
+}catch(err){
+    console.log(err.message);
+}
+
+// isPositive(-3); // false
+// isPositive(3); // true
 
 exports.isPositive = isPositive;

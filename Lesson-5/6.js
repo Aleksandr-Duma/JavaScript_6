@@ -23,7 +23,13 @@ const isEven = function(n){
     }
 }
 
-isEven(3); // false
-isEven(4); // true
+try{
+    console.log(isEven(3));
+}catch(err){
+    console.log(err.message);
+}
+
+// isEven(3); // false
+// isEven(4); // true
 
 exports.isEven = isEven;

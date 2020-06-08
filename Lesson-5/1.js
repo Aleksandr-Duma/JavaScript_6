@@ -20,6 +20,10 @@ function f(param){
     return Math.pow(param, 3);
 }
 
-console.log(f(2)); // 8
+try{
+    console.log(f(2)); // 8
+}catch(err){
+    console.log(err.message);
+}
 
 exports.f = f;

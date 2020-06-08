@@ -25,6 +25,7 @@ function f(param){
         throw new Error('Вы передали пустой массив!')
     }
     let result = param.splice(0, 1).join('');
+
         console.log(result); 
     if(param.length !== 0){
 
@@ -32,7 +33,12 @@ function f(param){
     }     
 }
 
-f([1, 2, 3]);
+try{
+    f([1, 2, 3]);
+}catch(err){
+    console.log(err.message);
+}
+
 // 1
 // 2
 // 3

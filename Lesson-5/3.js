@@ -25,7 +25,10 @@ function f(par1, par2, par3){
     return (par1 - par2) / par3;
 }
 
-console.log(f(9, 3, 2)); // 3
-
+try{
+    console.log(f(9, 3, 2)); // 3
+}catch(err){
+    console.log(err.message);
+}
 
 exports.f = f;
