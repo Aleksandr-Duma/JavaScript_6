@@ -20,12 +20,54 @@ const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#'
 
 // Решение
 
-const filteredArray = filter(array, (element, index, arrayRef) => {
-    console.log(`${index}:`, element, arrayRef);
+const isArrayArgument = function(arg){
+    if(!Array. isArray(arg)){
+        throw new Error('Вы передали не массив!');
+    }
+}
 
-    return element === 'Добрый вечер!';
+const isFunctionArgument = function(arg){
+    if(typeof arg !== 'function'){
+        throw new Error('Вы передали не функцию!');
+    }
+}
+
+const myFilter = function(array, callback){
+    const newArray = [];
+
+    isArrayArgument(array);
+    isFunctionArgument(callback);
+
+    for(let i = 0; i < array.length; i++){
+        const result = callback(array[i], i, array);
+
+        if(result){
+            newArray.push(array[i]);
+        }
+    }
+
+    return newArray;
+};
+
+try{
+const filteredArray = myFilter(array, function(elem, index, array){
+
+    return typeof elem === 'number';
 });
+console.log(filteredArray);
 
-console.log(filteredArray); // ['Добрый вечер!']
+}catch(err){
+    console.log(err.message);
+};
 
-exports.filter = filter;
+///////////////////////////////////////////////////////////////////////////
+
+// const filteredArray = filter(array, (element, index, arrayRef) => {
+//     console.log(`${index}:`, element, arrayRef);
+
+//     return element === 'Добрый вечер!';
+// });
+
+// console.log(filteredArray); // ['Добрый вечер!']
+
+// exports.filter = filter;
