@@ -20,12 +20,50 @@ const array = [1, 2, 3, 4, 5, 6];
 
 // Решение
 
-const result = every(array, (element, index, arrayRef) => {
-    console.log(`${index}:`, element, arrayRef);
+const isArrayArgument = function(arg){
+    if(!Array.isArray(arg)){
+        throw new Error('Вы передали не массив!');
+    }
+}
 
-    return typeof element === 'number';
-});
+const isFunctionArgument = function(arg){
+    if(typeof arg !== 'function'){
+        throw new Error('Вы передали не функцию!');
+    }
+}
 
-console.log(result); // true
+const every = function(arg1, callback){
+    let returnBoolean = null;
+
+    isArrayArgument(arg1);
+    isFunctionArgument(callback);
+    
+    for(let i = 0; i < arg1.length; i++){ 
+        const resultInner = callback(arg1[i], i, arg1);
+
+        if(!resultInner){
+            returnBoolean = false;
+            break;
+        }else{
+            returnBoolean = true;
+        }  
+    }
+
+    return returnBoolean;
+};
+
+
+
+ try{
+    const result = every(array, function(element, index, arrRef){
+        console.log(`${index}:`, element, arrRef);
+        
+        return typeof element === 'number';
+    });
+    console.log(result); // true
+
+ }catch(err){
+    console.log(err.message);
+ }
 
 exports.every = every;

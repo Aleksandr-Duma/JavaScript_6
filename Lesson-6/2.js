@@ -21,7 +21,7 @@ const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#'
 // Решение
 
 const isArrayArgument = function(arg){
-    if(!Array. isArray(arg)){
+    if(!Array.isArray(arg)){
         throw new Error('Вы передали не массив!');
     }
 }
@@ -32,7 +32,7 @@ const isFunctionArgument = function(arg){
     }
 }
 
-const myFilter = function(array, callback){
+const filter = function(array, callback){
     const newArray = [];
 
     isArrayArgument(array);
@@ -50,24 +50,15 @@ const myFilter = function(array, callback){
 };
 
 try{
-const filteredArray = myFilter(array, function(elem, index, array){
+    const filteredArray = filter(array, function(element, index, arrayRef){
+        console.log(`${index}:`, element, arrayRef);
 
-    return typeof elem === 'number';
-});
-console.log(filteredArray);
+        return element === 'Добрый вечер!'; //['Добрый вечер!']
+    });
+    console.log(filteredArray);
 
 }catch(err){
     console.log(err.message);
 };
 
-///////////////////////////////////////////////////////////////////////////
-
-// const filteredArray = filter(array, (element, index, arrayRef) => {
-//     console.log(`${index}:`, element, arrayRef);
-
-//     return element === 'Добрый вечер!';
-// });
-
-// console.log(filteredArray); // ['Добрый вечер!']
-
-// exports.filter = filter;
+exports.filter = filter;

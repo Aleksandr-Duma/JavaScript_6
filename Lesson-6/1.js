@@ -32,7 +32,7 @@ const isFunctionArgument = function(param){
     }
 }
 
-const myForEach = function(arg1, callback){
+const forEach = function(arg1, callback){
 
     isArrayArgument(arg1);
     isFunctionArgument(callback);
@@ -43,21 +43,13 @@ const myForEach = function(arg1, callback){
 }
 
 try{
-const result = myForEach(array, function(item, index, array){
-        console.log(`${index}:`, item, array);
-});
+    const result = forEach(array, function(element, index, arrayRef){
+            console.log(`${index}:`, element, arrayRef);
+    });
     console.log(result); // undefined
 
 }catch(err){
     console.log(err.message);
 }
 
-/////////////////////////////////////////////////////////////////////
-
-// const result = forEach(array, (element, index, arrayRef) => {
-//     console.log(`${index}:`, element, arrayRef);
-// });
-
-// console.log(result); // undefined
-
-// exports.forEach = forEach;
+exports.forEach = forEach;
