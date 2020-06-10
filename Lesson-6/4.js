@@ -20,12 +20,48 @@ const array = [1, 2, 'Добро пожаловать.', 4, 5, 6];
 
 // Решение
 
-const result = some(array, (element, index, arrayRef) => {
-    console.log(`${index}:`, element, arrayRef);
+const isArrayArgument = function(arg){
+    if(!Array.isArray(arg)){
+        throw new Error('Вы передали не массив!');
+    }
+}
 
-    return typeof element === 'string';
-});
+const isFunctionArgument = function(arg){
+    if(typeof arg !== 'function'){
+        throw new Error('Вы передали не функцию!');
+    }
+}
 
-console.log(result); // true
+const some = function(arg1, callback){
+    let returnBoolean = null;
 
-exports.some = some;
+    isArrayArgument(arg1);
+    isFunctionArgument(callback);
+
+    for(let i = 0; i < arg1.length; i++){
+        const resultInner = callback(arg1[i], i, arg1);
+
+        if(resultInner){
+            returnBoolean = true;
+            break
+        }else{
+            returnBoolean = false;
+        }
+    }
+
+    return returnBoolean;
+}
+
+try{
+    const result = some(array, (element, index, arrayRef) => {
+        console.log(`${index}:`, element, arrayRef);
+    
+        return typeof element === 'string';
+    });
+    console.log(result); // true
+
+}catch(err){
+    console.log(err.message);
+}
+
+// exports.some = some;

@@ -52,8 +52,6 @@ const every = function(arg1, callback){
     return returnBoolean;
 };
 
-
-
  try{
     const result = every(array, function(element, index, arrRef){
         console.log(`${index}:`, element, arrRef);
