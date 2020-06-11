@@ -21,16 +21,50 @@ const INITIAL_ACCUMULATOR = 6;
 
 // Решение
 
-const result = reduce(
-    array,
-    (accumulator, element, index, arrayRef) => {
-        console.log(`${index}:`, accumulator, element, arrayRef);
+const isArrayArgument = function(arg){
+    if(!Array.isArray(arg)){
+        throw new Error('Вы передали не массив!');
+    }
+}
 
-        return accumulator + element;
-    },
-    INITIAL_ACCUMULATOR,
-);
+const isFunctionArgument = function(arg){
+    if(typeof arg !== 'function'){
+        throw new Error('Вы передали не функцию!');
+    }
+}
 
-console.log(result); // 21
+const reduce = function(array, callback, initial){
+    let startCount = initial;
+
+    isArrayArgument(array);
+    isFunctionArgument(callback);
+
+    if(!initial){
+        startCount = 0;
+    }
+
+    for(let i = 0; i < array.length; i++){
+        callback(startCount, array[i], i, array);
+        startCount += array[i];
+    }
+
+    return startCount;
+}
+
+try{
+    const result = reduce(
+        array,
+        (accumulator, element, index, arrayRef) => {
+            console.log(`${index}:`, accumulator, element, arrayRef);
+    
+            return accumulator + element;
+        },
+        INITIAL_ACCUMULATOR,
+    );
+    console.log(result); // 21
+
+}catch(err){
+    console.log(err.message);
+}
 
 exports.reduce = reduce;
