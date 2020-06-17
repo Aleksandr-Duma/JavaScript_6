@@ -31,7 +31,35 @@ const array = [
 
 // Решение
 
-const result = inspect(array);
-console.log(result); // [ 7, 11, 7, 12 ]
+const isArrayArgument = function(arg){
+    if(!Array.isArray(arg)){
+        throw new Error('Вы передали не массив!');
+    }
+}
+
+const inspect = function(param){
+    let newArray = [];
+
+    isArrayArgument(param);
+
+    let res = param.filter(function(elem){
+
+        return typeof elem === 'string'; 
+    });
+
+    res.map(function(item){
+        return newArray.push(item.length);
+    });
+
+    return newArray
+}
+
+try{
+    const result = inspect(array);
+    console.log(result); // [ 7, 11, 7, 12 ]
+
+}catch(err){
+    console.log(err.message);
+}
 
 exports.inspect = inspect;
