@@ -33,7 +33,7 @@ const isFunctionArgument = function(arg){
 }
 
 const some = function(arg1, callback){
-    let returnBoolean = null;
+    let returnBoolean = false;
 
     isArrayArgument(arg1);
     isFunctionArgument(callback);
@@ -44,8 +44,6 @@ const some = function(arg1, callback){
         if(resultInner){
             returnBoolean = true;
             break
-        }else{
-            returnBoolean = false;
         }
     }
 

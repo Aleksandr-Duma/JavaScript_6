@@ -39,9 +39,7 @@ const filter = function(array, callback){
     isFunctionArgument(callback);
 
     for(let i = 0; i < array.length; i++){
-        const result = callback(array[i], i, array);
-
-        if(result){
+        if(callback(array[i], i, array)){
             newArray.push(array[i]);
         }
     }

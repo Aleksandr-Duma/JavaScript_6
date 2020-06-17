@@ -33,7 +33,7 @@ const isFunctionArgument = function(arg){
 }
 
 const every = function(arg1, callback){
-    let returnBoolean = null;
+    let returnResult = true;
 
     isArrayArgument(arg1);
     isFunctionArgument(callback);
@@ -42,14 +42,12 @@ const every = function(arg1, callback){
         const resultInner = callback(arg1[i], i, arg1);
 
         if(!resultInner){
-            returnBoolean = false;
+            returnResult = false;
             break;
-        }else{
-            returnBoolean = true;
-        }  
+        } 
     }
 
-    return returnBoolean;
+    return returnResult;
 };
 
  try{

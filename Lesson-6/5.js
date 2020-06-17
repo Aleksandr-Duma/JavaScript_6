@@ -34,21 +34,16 @@ const isFunctionArgument = function(arg){
 }
 
 const reduce = function(array, callback, initial){
-    let startCount = initial;
-
+    let accumulatorItem = initial || 0;
+    
     isArrayArgument(array);
     isFunctionArgument(callback);
 
-    if(!initial){
-        startCount = 0;
-    }
-
     for(let i = 0; i < array.length; i++){
-        callback(startCount, array[i], i, array);
-        startCount += array[i];
+        accumulatorItem = callback(accumulatorItem, array[i], i, array);
     }
 
-    return startCount;
+    return accumulatorItem;
 }
 
 try{
