@@ -12,8 +12,40 @@
 
 // Решение
 
-const result = createArray('x', 5);
+const isValidFirstArgument = function(arg){
+    if( typeof arg !== 'number' && 
+        typeof arg !== 'string' && 
+        typeof arg !== 'object' &&
+        !Array.isArray(arg)) {
+            throw new Error('Первый аргумент не является валидным!');
+    }
+};
 
-console.log(result); // [ x, x, x, x, x ]
+const isValidSecondArgument = function(arg){
+    if(typeof arg !== 'number'){
+        throw new Error('Второй аргумент не является валидным!');
+    }
+};
+
+const createArray = function(arg1, arg2){
+    const newArray = [];
+
+    isValidFirstArgument(arg1);
+    isValidSecondArgument(arg2);
+
+    for(let i = 0; i < arg2; i++){
+        newArray.push(arg1);
+    }
+
+    return newArray;
+}
+
+try{
+    const result = createArray('x', 5);
+    console.log(result); // [ x, x, x, x, x ]
+
+}catch(err){
+    console.log(err.message);
+}
 
 exports.createArray = createArray;
