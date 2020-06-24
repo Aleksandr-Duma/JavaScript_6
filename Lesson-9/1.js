@@ -35,7 +35,7 @@ const isObjectSecondArgument = function(arg){
 };
 
 const shallowMerge = function(obj1, obj2){
-    
+
     isObjectFirstArgument(obj1);
     isObjectSecondArgument(obj2);
     
@@ -50,10 +50,14 @@ const shallowMerge = function(obj1, obj2){
     return ourObject;
 }
 
-const result = shallowMerge(user, userData);
+try{
+    const result = shallowMerge(user, userData);
 
-console.log(result); // { firstName: 'Marcus', lastName: 'Schmidt', job: 'developer', country: 'Germany' }
-console.log(Object.getOwnPropertyDescriptor(result, 'firstName').writable); // false
-console.log(Object.getOwnPropertyDescriptor(result, 'job').configurable); // false
-
+    console.log(result); // { firstName: 'Marcus', lastName: 'Schmidt', job: 'developer', country: 'Germany' }
+    console.log(Object.getOwnPropertyDescriptor(result, 'firstName').writable); // false
+    console.log(Object.getOwnPropertyDescriptor(result, 'job').configurable); // false
+    
+}catch(err){
+    console.log(err.message);
+}
 exports.shallowMerge = shallowMerge;
