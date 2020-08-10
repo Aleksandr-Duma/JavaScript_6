@@ -42,11 +42,13 @@ const compose = function(...functions){
 
         for(let item of func){
             isFunctionArgument(item);
-            if(!item(result)){
+
+            let innerResult = item(result);
+
+            if(!innerResult){
                 throw new Error('Функция не вернула значения!');
             }
-       
-            result = item(result);
+            result = innerResult;
         }
 
         return result;

@@ -34,13 +34,14 @@ const isObjectArgument = (param) =>{
     };
 };
 
-const bind = (func, obj, arg1, arg2) =>{
-    
+const bind = (func, obj, ...params) =>{
+    let restParams = params;
+
     isFunctionArgument(func);
     isObjectArgument(obj);
 
-    return () =>{
-        return func.call(obj, arg1, arg2);
+    return () =>{ 
+        return func.call(obj, ...restParams);
     }; 
 };
 

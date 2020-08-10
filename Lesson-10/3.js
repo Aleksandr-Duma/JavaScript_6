@@ -44,15 +44,17 @@ const calculateAdvanced = function(...functions){
         };
 
     for(let i = 0; i < functions.length; i++){
-        let indexFunc = i;
+        let indexFunc = i; 
 
         isFunctionArgument(functions[i]);
 
         try{  
-            isEmptyFunction(functions[i](resultNum), indexFunc)
+            let innerVariable = functions[i](resultNum);
 
-            if(functions[i](resultNum)){
-                resultNum = functions[i](resultNum)
+            isEmptyFunction(innerVariable, indexFunc);
+
+            if(innerVariable){
+                resultNum = innerVariable;
             }
             objData.value = resultNum;
 

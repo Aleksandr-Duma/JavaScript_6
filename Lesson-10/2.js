@@ -28,12 +28,14 @@ const isFunctionArgument = function(param){
 };
 
 const calculate = (...functions) =>{
-    let resultNum = null;
 
     isFunctionArgument(functions);
 
-    for(const fun of functions){
-        resultNum = fun(resultNum);
+    let resultNum = functions[0]();
+    let functionsAll = functions.slice(1);
+
+    for(let i = 0; i < functionsAll.length; i++){
+        resultNum = functionsAll[i](resultNum);
         if(!resultNum){
             throw new Error('Функция не вернула значения!');
         };
@@ -52,7 +54,7 @@ try{
         },
         prevResult => {
             return prevResult * 5;
-        },
+        }
     );
     
     console.log(result); // 55
